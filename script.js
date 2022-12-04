@@ -16,6 +16,7 @@ let mis_peliculas_iniciales = [
     director: "Christopher Nolan",
     miniatura: "files/interstellar.png",
   },
+
 ];
 
 let mis_peliculas = [];
