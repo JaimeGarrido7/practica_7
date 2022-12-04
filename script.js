@@ -1,5 +1,4 @@
 
-// MODELO DE DATOS
 
 let mis_peliculas_iniciales = [
   {
@@ -40,11 +39,11 @@ const postAPI = async (peliculas) => {
 const getAPI = async () => {
   // Completar: Llamar a la API para leer la información guardada en myjson a través de la API
   try {
-    const res = await fetch(localStorage.URL); 
-    return await res.json();          
+    const res = await fetch(localStorage.URL);
+    return await res.json();
   } catch (error) {
     alert("No se ha podido crear el endpoint.");
-  }  
+  }
 };
 
 const updateAPI = async (peliculas) => {
@@ -74,9 +73,8 @@ const indexView = (peliculas) => {
     view += `
           <div class="movie">
              <div class="movie-img">
-                  <img class="show" data-my-id="${i}" src="${
-      peliculas[i].miniatura
-    }" onerror="this.src='files/placeholder.png'"/>
+                  <img class="show" data-my-id="${i}" src="${peliculas[i].miniatura
+      }" onerror="this.src='files/placeholder.png'"/>
              </div>
              <div class="title">
                  ${peliculas[i].titulo || "<em>Sin título</em>"}
@@ -184,7 +182,7 @@ const showContr = (i) => {
   // Completar: controlador que muestra la vista showView()
   //mis_peliculas =  getAPI()
   let pelicula = mis_peliculas[i];
-  document.getElementById("main").innerHTML =  showView(pelicula);
+  document.getElementById("main").innerHTML = showView(pelicula);
 };
 
 const newContr = () => {
@@ -195,10 +193,10 @@ const newContr = () => {
 const createContr = async () => {
   // Completar: controlador que crea una película nueva en el modelo guardado en myjson
   let mis_peliculas = (await getAPI());
-  mis_peliculas[mis_peliculas.length]= {
-      titulo : document.getElementById("titulo").value,
-      director : document.getElementById("director").value,
-      miniatura : document.getElementById("miniatura").value
+  mis_peliculas[mis_peliculas.length] = {
+    titulo: document.getElementById("titulo").value,
+    director: document.getElementById("director").value,
+    miniatura: document.getElementById("miniatura").value
   };
   /*mis_peliculas.push({"titulo":document.getElementById("titulo").value ,
                       "director": document.getElementById("director").value , 
@@ -209,7 +207,7 @@ const createContr = async () => {
 };
 
 const editContr = (i) => {
-  document.getElementById("main").innerHTML = editView(i,mis_peliculas[i]);
+  document.getElementById("main").innerHTML = editView(i, mis_peliculas[i]);
 };
 
 const updateContr = async (i) => {
@@ -254,4 +252,3 @@ document.addEventListener("click", (ev) => {
 
 // Inicialización
 document.addEventListener("DOMContentLoaded", initContr);
-
